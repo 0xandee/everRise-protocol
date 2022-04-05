@@ -10,7 +10,7 @@ contract TokenFarm is Ownable {
     // stakeTokens - DONE
     // unStakeTokens
     // issueTokens - DONE
-    // addAllowedTokens - DONE
+    // addAllowedToken - DONE
     // getEthValue - DONE
 
     // mapping token address => staker address => amount staked
