@@ -1,6 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { DAppProvider, ChainId } from '@usedapp/core';
 
 function App() {
