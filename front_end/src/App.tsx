@@ -7,7 +7,7 @@ import { Main } from './components/Main';
 function App() {
   return (
     <DAppProvider config={{
-      networks: [Ganache],
+      networks: [Kovan],
       notifications: {
         expirationPeriod: 1000,
         checkInterval: 100,
