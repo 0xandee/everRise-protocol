@@ -1,33 +1,15 @@
 {
   "42": {
     "DappToken": [
+      "0xbb92882e6301BE5D28D46FA7725844f24a99b211",
       "0x63b21AAD19053D80D92B219141039d3649240102"
     ],
     "MockERC20": [
       "0x560f1ed99eFd3324ABE734981bdEAd1ccFceee97"
     ],
     "TokenFarm": [
+      "0x55a6D8f94509f000BE90D464C8c2Ccb0FE059004",
       "0xC3DB7e0dF208971d725ab18A3148db5fFc2acE0C"
-    ]
-  },
-  "dev": {
-    "DappToken": [
-      "0x3194cBDC3dbcd3E11a07892e7bA5c3394048Cc87"
-    ],
-    "LinkToken": [
-      "0x6951b5Bd815043E3F842c1b026b0Fa888Cc2DD85"
-    ],
-    "MockDAI": [
-      "0x6b4BDe1086912A6Cb24ce3dB43b3466e6c72AFd3"
-    ],
-    "MockV3Aggregator": [
-      "0xe0aA552A10d7EC8760Fc6c246D391E698a82dDf9"
-    ],
-    "MockWETH": [
-      "0x9E4c14403d7d9A8A782044E86a93CAE09D7B2ac9"
-    ],
-    "TokenFarm": [
-      "0x602C71e4DAC47a042Ee7f46E0aee17F94A3bA0B6"
     ]
   }
 }

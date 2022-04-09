@@ -13,6 +13,9 @@ contract TokenFarm is Ownable {
     // addAllowedToken - DONE
     // getEthValue - DONE
 
+    // 100 ETH 1:1 for every 1 ETH, we give 1 DappToken
+    // 50 ETH and 50 DAI staked, and we want to give a reward of 1 DAPP / 1 DAI
+
     // mapping token address => staker address => amount staked
     mapping(address => mapping(address => uint256)) public stakingBalance;
     mapping(address => uint256) public uniqueTokensStaked;
@@ -36,11 +39,11 @@ contract TokenFarm is Ownable {
         // issue to all stakers
         // send token reward base on total value locked
         for (
-            uint256 stakerIndex = 0;
-            stakerIndex < stakers.length;
-            stakerIndex++
+            uint256 stakersIndex = 0;
+            stakersIndex < stakers.length;
+            stakersIndex++
         ) {
-            address recipient = stakers[stakerIndex];
+            address recipient = stakers[stakersIndex];
             uint256 userTotalValue = getUserTotalValue(recipient);
             dappToken.transfer(recipient, userTotalValue);
         }
@@ -115,6 +118,20 @@ contract TokenFarm is Ownable {
         IERC20(_token).transfer(msg.sender, balance);
         stakingBalance[_token][msg.sender] = 0;
         uniqueTokensStaked[msg.sender] = uniqueTokensStaked[msg.sender] - 1;
+        // The code below fixes a problem not addressed in the video, where stakers could appear twice
+        // in the stakers array, receiving twice the reward.
+        if (uniqueTokensStaked[msg.sender] == 0) {
+            for (
+                uint256 stakersIndex = 0;
+                stakersIndex < stakers.length;
+                stakersIndex++
+            ) {
+                if (stakers[stakersIndex] == msg.sender) {
+                    stakers[stakersIndex] = stakers[stakers.length - 1];
+                    stakers.pop();
+                }
+            }
+        }
     }
 
     function updateUniqueTokensStaked(address _userAddress, address _token)
