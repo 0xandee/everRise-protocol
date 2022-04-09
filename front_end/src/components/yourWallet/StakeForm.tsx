@@ -5,7 +5,6 @@ import { Button, Input, CircularProgress, Snackbar } from "@material-ui/core"
 import AddIcon from '@mui/icons-material/Add';
 import LoadingButton from '@mui/lab/LoadingButton';
 import SaveIcon from '@mui/icons-material/Save';
-import Stack from '@mui/material/Stack';
 import React, { useState, useEffect } from 'react'
 import { useStakeTokens } from "../../hooks"
 import { utils } from 'ethers'
@@ -86,7 +85,7 @@ export const StakeForm = ({ token }: StakeFormProps) => {
                         color="primary"
                         size="large"
                         endIcon={<AddIcon />}
-                        disabled={amount == 0}>
+                        disabled={amount == 0 || amount < 0 || isMining}>
                         Stake
                     </Button>}
 

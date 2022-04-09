@@ -48,7 +48,6 @@ export const YourWallet = ({ supportedTokens }: YourWalletProps) => {
         <Box>
             <Box className={classes.box}>
                 <div>
-                    {/* <h1 className={classes.header}>My Wallet</h1> */}
                     <Typography
                         variant="h4"
                         component="h1"

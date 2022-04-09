@@ -7,13 +7,14 @@ import dapp from "../dapp.png"
 import eth from "../eth.png"
 import dai from "../dai.png"
 import { YourWallet } from "./yourWallet/YourWallet"
+import { TokenFarmContract } from "./tokenFarmContract/TokenFarmContract"
 import { makeStyles, Typography } from "@material-ui/core"
 
 const useStyles = makeStyles((theme) => ({
     title: {
         color: theme.palette.common.white,
-        textAlign: "center",
-        padding: theme.spacing(4)
+        textAlign: "left",
+        padding: "0 0 0 16px"
     }
 }))
 
@@ -52,8 +53,9 @@ export const Main = () => {
                 root: classes.title,
             }}
         >
-            Dapp Token Farm
+            Token Farms
         </Typography>
-        <YourWallet supportedTokens={supportedTokens} />
+        {/* <YourWallet supportedTokens={supportedTokens} /> */}
+        <TokenFarmContract supportedTokens={supportedTokens} />
     </>)
 }
