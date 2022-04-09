@@ -1,5 +1,5 @@
 import React from 'react';
-import { DAppProvider, Kovan, ChainId } from '@usedapp/core';
+import { DAppProvider, Kovan, Rinkeby, ChainId } from '@usedapp/core';
 import { Container } from '@material-ui/core'
 import { Header } from './components/Header'
 import { Main } from './components/Main';
@@ -7,10 +7,10 @@ import { Main } from './components/Main';
 function App() {
   return (
     <DAppProvider config={{
-      networks: [Kovan],
+      networks: [Kovan, Rinkeby],
       notifications: {
         expirationPeriod: 1000,
-        checkInterval: 100,
+        checkInterval: 1000,
       },
     }}>
       <Header />

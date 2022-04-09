@@ -7,7 +7,7 @@ import dapp from "../dapp.png"
 import eth from "../eth.png"
 import dai from "../dai.png"
 import { YourWallet } from "./yourWallet/YourWallet"
-import { makeStyles } from "@material-ui/core"
+import { makeStyles, Typography } from "@material-ui/core"
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -45,7 +45,15 @@ export const Main = () => {
     ]
 
     return (<>
-        <h2 className={classes.title}>Dapp Token App</h2>
+        <Typography
+            variant="h2"
+            component="h1"
+            classes={{
+                root: classes.title,
+            }}
+        >
+            Dapp Token Farm
+        </Typography>
         <YourWallet supportedTokens={supportedTokens} />
     </>)
 }

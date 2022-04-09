@@ -2,12 +2,16 @@ import { formatUnits } from '@ethersproject/units'
 import { useEthers, useTokenBalance, useNotifications } from '@usedapp/core'
 import { Token } from '../Main'
 import { Button, Input, CircularProgress, Snackbar } from "@material-ui/core"
+import AddIcon from '@mui/icons-material/Add';
+import LoadingButton from '@mui/lab/LoadingButton';
+import SaveIcon from '@mui/icons-material/Save';
+import Stack from '@mui/material/Stack';
 import React, { useState, useEffect } from 'react'
 import { useStakeTokens } from "../../hooks"
 import { utils } from 'ethers'
 import Alert from "@material-ui/lab/Alert"
 
-interface StakeFormProps {
+export interface StakeFormProps {
     token: Token
 }
 
@@ -20,9 +24,9 @@ export const StakeForm = ({ token }: StakeFormProps) => {
 
     const [amount, setAmount] = useState<number | string | Array<number | string>>(0)
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const newAmount = event.target.value === "" ? "" : Number(event.target.value)
+        const newAmount = event.target.value === "" ? "0" : Number(event.target.value)
         setAmount(newAmount)
-        console.log(newAmount)
+        console.log("newAmount", newAmount);
     }
 
     const { approveAndStake, state: approveAndStakeErc20State } = useStakeTokens(tokenAddress)
@@ -61,14 +65,31 @@ export const StakeForm = ({ token }: StakeFormProps) => {
         <>
             <div>
                 <Input
-                    onChange={handleInputChange} />
-                <Button
-                    onClick={handleStakeSubmit}
-                    color="primary"
-                    size="large"
-                    disabled={isMining}>
-                    {isMining ? <CircularProgress size={26} /> : "Stake!!!"}
-                </Button>
+                    onChange={handleInputChange}
+                    placeholder="Input stake amount"
+                    type="number"
+                    autoFocus={true} />
+            </div>
+            <div>
+                {isMining ?
+                    <LoadingButton
+                        loading
+                        loadingPosition="start"
+                        startIcon={<SaveIcon />}
+                        variant="outlined"
+                        size="large"
+                    >
+                        Staking
+                    </LoadingButton> : <Button
+                        onClick={handleStakeSubmit}
+                        variant="contained"
+                        color="primary"
+                        size="large"
+                        endIcon={<AddIcon />}
+                        disabled={amount == 0}>
+                        Stake
+                    </Button>}
+
             </div>
             <Snackbar
                 open={showErc20ApprovalSuccess}
