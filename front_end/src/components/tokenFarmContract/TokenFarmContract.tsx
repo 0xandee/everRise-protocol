@@ -9,6 +9,22 @@ import { Token } from "../Main"
 import { Unstake } from "./Unstake"
 import { WalletBalance } from "../yourWallet/WalletBalance"
 import { StakeForm } from "../yourWallet/StakeForm"
+import { createTheme } from '@mui/material/styles';
+
+import { MuiThemeProvider } from '@material-ui/core/styles';
+
+// use default theme
+// const theme = createTheme();
+
+// Or Create your Own theme:
+const theme = createTheme({
+  palette: {
+    secondary: {
+      main: '#1A5AFF'
+    }
+  }
+});
+
 interface TokenFarmContractProps {
   supportedTokens: Array<Token>
 }
@@ -23,11 +39,16 @@ const useStyles = makeStyles((theme) => ({
   box: {
     backgroundColor: "white",
     borderRadius: "25px",
-    margin: `${theme.spacing(4)}px 0`,
+    margin: `${theme.spacing(4)}px 0 ${theme.spacing(2)}px 0`,
+    boxShadow: "0 0 16px rgb(228 231 232 / 45%)",
+    // border: "1px solid rgb(231, 234, 243)",
   },
   header: {
-    color: "black",
-    padding: '24px',
+    color: "#1A5AFF",
+    padding: '32px',
+    paddingBottom: '16px',
+    textAlign: "center",
+    fontWeight: 700,
   },
   divider: {
     background: theme.palette.divider,
@@ -61,64 +82,66 @@ export const TokenFarmContract = ({
   const isConnected = account !== undefined
 
   return (
-    <Box>
-      <Box className={classes.box} >
-        <div>
-          <Typography
-            variant="h4"
-            component="h1"
-            classes={{
-              root: classes.header,
-            }}
-          >
-            Farm Contracts
-          </Typography>
-          <Divider classes={{ root: classes.divider }} />
-          {isConnected ? (
-            <TabContext value={selectedTokenIndex.toString()}>
-              <TabList onChange={handleChange} aria-label="stake form tabs" centered>
-                {supportedTokens.map((token, index) => {
-                  return (
-                    <Tab
-                      label={token.name}
-                      value={index.toString()}
-                      key={index}
-                    />
-                  )
-                })}
-              </TabList>
-              <div className={classes.paddingContainer}>
-                {supportedTokens.map((token, index) => {
-                  return (
-                    <div className={classes.flexContainer}>
-                      <TabPanel value={index.toString()} key={index}
-                        classes={{
-                          root: classes.flexChild,
-                        }}>
-                        <div className={classes.tabContent}>
-                          <WalletBalance
-                            token={supportedTokens[selectedTokenIndex]}
-                          />
-                          <StakeForm token={supportedTokens[selectedTokenIndex]} />
-                        </div>
-                      </TabPanel>
-                      <Divider orientation="vertical" flexItem classes={{ root: classes.divider }} />
-                      <TabPanel value={index.toString()} key={index}
-                        classes={{
-                          root: classes.flexChild,
-                        }}>
-                        <Unstake token={token} />
-                      </TabPanel>
-                    </div>
-                  )
-                })}
-              </div>
-            </TabContext>
-          ) : (
-            <ConnectionRequiredMsg />
-          )}
-        </div>
+    <MuiThemeProvider theme={theme}>
+      <Box>
+        <Box className={classes.box} >
+          <div>
+            <Typography
+              variant="h4"
+              component="h1"
+              classes={{
+                root: classes.header,
+              }}
+            >
+              Farm Contracts
+            </Typography>
+            {isConnected ? (
+              <TabContext value={selectedTokenIndex.toString()}>
+                <TabList onChange={handleChange} aria-label="stake form tabs" centered textColor="secondary" indicatorColor="secondary">
+                  {supportedTokens.map((token, index) => {
+                    return (
+                      <Tab
+                        label={token.name}
+                        value={index.toString()}
+                        key={index}
+                      />
+                    )
+                  })}
+                </TabList>
+                <Divider classes={{ root: classes.divider }} />
+                <div className={classes.paddingContainer}>
+                  {supportedTokens.map((token, index) => {
+                    return (
+                      <div className={classes.flexContainer}>
+                        <TabPanel value={index.toString()} key={index}
+                          classes={{
+                            root: classes.flexChild,
+                          }}>
+                          <div className={classes.tabContent}>
+                            <WalletBalance
+                              token={supportedTokens[selectedTokenIndex]}
+                            />
+                            <StakeForm token={supportedTokens[selectedTokenIndex]} />
+                          </div>
+                        </TabPanel>
+                        <Divider orientation="vertical" flexItem classes={{ root: classes.divider }} />
+                        <TabPanel value={index.toString()} key={index}
+                          classes={{
+                            root: classes.flexChild,
+                          }}>
+                          <Unstake token={token} />
+                        </TabPanel>
+                      </div>
+                    )
+                  })}
+                </div>
+              </TabContext>
+            ) : (
+              <ConnectionRequiredMsg />
+            )}
+          </div>
+        </Box>
       </Box>
-    </Box>
+    </MuiThemeProvider>
   )
 }

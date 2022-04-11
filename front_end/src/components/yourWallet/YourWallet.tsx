@@ -75,11 +75,7 @@ export const YourWallet = ({ supportedTokens }: YourWalletProps) => {
                                 return (
                                     <TabPanel value={index.toString()} key={index}>
                                         <div className={classes.tabContent}>
-                                            <WalletBalance
-                                                token={supportedTokens[selectedTokenIndex]}
-                                            />
-                                            {/* this is the same as */}
-                                            {/* The chainlink_defi props passing */}
+                                            <WalletBalance token={supportedTokens[selectedTokenIndex]} />
                                             <StakeForm token={supportedTokens[selectedTokenIndex]} />
                                         </div>
                                     </TabPanel>

@@ -10,23 +10,13 @@ html {
 
 html,
 body {
-  background-color: hsl(227, 61%, 26%);
+  background-color:  #f3f5f9;
   margin: 0;
 }
 
 body {
   display: grid;
   min-height: 100vh;
-  background: linear-gradient(
-    135deg,
-    hsl(227, 61%, 13%),
-    hsl(227, 61%, 26%),
-    hsl(227, 61%, 39%)
-  );
-}
-
-body::backdrop {
-  background-color: hsl(227, 61%, 26%);
 }
 
 code {

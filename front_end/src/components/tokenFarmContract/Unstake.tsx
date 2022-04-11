@@ -26,6 +26,19 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-start",
     gap: theme.spacing(2),
   },
+  primaryColorButton: {
+    color: "#fff!important",
+    backgroundColor: "#1A5AFF!important",
+  },
+  secondaryColorButton: {
+    color: "#1A5AFF!important",
+    backgroundColor: "#fff!important",
+    borderColor: "#1A5AFF!important",
+  },
+  disabledColorButton: {
+    color: "#acacac!important",
+    backgroundColor: "#e0e0e0!important",
+  },
 }))
 
 export const Unstake = ({ token }: UnstakeFormProps) => {
@@ -79,19 +92,21 @@ export const Unstake = ({ token }: UnstakeFormProps) => {
         />
         {isMining ?
           <LoadingButton
+            className={classes.secondaryColorButton}
             loading
             loadingPosition="start"
             startIcon={<SaveIcon />}
             variant="outlined"
-            size="large"
+            size="medium"
           >
             Unstaking
           </LoadingButton> : <Button
+            className={isMining || formattedBalance === 0 ? "" : classes.primaryColorButton}
             color="primary"
             variant="contained"
-            size="large"
+            size="medium"
             onClick={handleUnstakeSubmit}
-            disabled={isMining || formattedBalance === 0}
+            disabled={isMining || formattedBalance === 0} disableElevation
           >
             Unstake all
           </Button>}
@@ -102,7 +117,7 @@ export const Unstake = ({ token }: UnstakeFormProps) => {
         onClose={handleCloseSnack}
       >
         <Alert onClose={handleCloseSnack} severity="success">
-          Tokens unstaked successfully!
+          Tokens Unstaked Successfully!
         </Alert>
       </Snackbar>
     </>
