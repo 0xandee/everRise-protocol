@@ -1,6 +1,6 @@
 # Defi Farming Full-stack
 ## Summary
-This is a repo to build your own full stack defi staking application for yield farming. Inspired from: [This repository](https://github.com/PatrickAlphaC/defi-stake-yield-brownie)
+This is a repo of full stack defi staking application for yield farming. Inspired from: [This repository](https://github.com/PatrickAlphaC/defi-stake-yield-brownie)
 
 You can view the live interactive version here https://fr3aking.github.io/everRise-protocol/
 
