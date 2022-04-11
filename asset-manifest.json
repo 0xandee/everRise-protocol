@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/everRise-protocol/static/css/main.a221dfa2.css",
+    "main.js": "/everRise-protocol/static/js/main.5e29beb5.js",
+    "static/js/787.22edae46.chunk.js": "/everRise-protocol/static/js/787.22edae46.chunk.js",
+    "static/media/eth.png": "/everRise-protocol/static/media/eth.4aa4d7e0e1c35331bd89.png",
+    "static/media/dapp.png": "/everRise-protocol/static/media/dapp.70067729f620638d9839.png",
+    "static/media/everRiseLogo.svg": "/everRise-protocol/static/media/everRiseLogo.c5221d561830ad1c3cfb9d7097ccc546.svg",
+    "index.html": "/everRise-protocol/index.html",
+    "main.a221dfa2.css.map": "/everRise-protocol/static/css/main.a221dfa2.css.map",
+    "main.5e29beb5.js.map": "/everRise-protocol/static/js/main.5e29beb5.js.map",
+    "787.22edae46.chunk.js.map": "/everRise-protocol/static/js/787.22edae46.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a221dfa2.css",
+    "static/js/main.5e29beb5.js"
+  ]
+}
