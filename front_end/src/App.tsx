@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { DAppProvider, Kovan, Rinkeby, ChainId } from '@usedapp/core';
 import { Container } from '@material-ui/core'
 import { Header } from './components/Header'
 import { Main } from './components/Main';
 
+// This effect runs once, after the first render
+document.title = 'Farm | everRise Protocol';
 
 function App() {
   return (
