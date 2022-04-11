@@ -91,7 +91,7 @@ export const Main = (props: any) => {
                 <br /><br />
                 <b>Repository:</b> <a href="https://github.com/Fr3aKiNg/defi-stake-yield-brownie">Github Link </a>
                 <br /><br />
-                <b>Connect me via: </b> <a href="https://www.linkedin.com/in/andyvo111/">Andy Vo </a>  <br />
+                <b>Connect me: </b> <a href="https://www.linkedin.com/in/andyvo111/">Andy Vo </a>  <br />
 
             </Typography>
         </div>)
