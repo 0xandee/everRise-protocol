@@ -1,10 +1,19 @@
 # Defi Farming Full-stack
+## Summary
 This is a repo to build your own full stack defi staking application for yield farming. Inspired from: [This repository](https://github.com/PatrickAlphaC/defi-stake-yield-brownie)
 
 You can view the live interactive version here https://fr3aking.github.io/everRise-protocol/
 
+<br/>
+<p align="center">
+<a href="https://chain.link" target="_blank">
+<img src="./web-image.png" width="900" alt="Full Stack Example">
+</a>
+</p>
+<br/>
+
 **Note:**
-1. You are able to test the everRise Protocol without spending cryptoassets  on the available testnets for each network.
+1. You are able to test the everRise Protocol without spending cryptoassets on the available testnets for each network.
 2. To get started, make sure to switch your wallet provider to the Kovan testnet network in order to use the protocol testnet without incurring costs on the mainnet network.
 3. Testnet networks are different environments from mainnet and simulate real use cases for development, testing or production.
 4. The assets on a testnet are not “real,” meaning that they cannot be withdrawn to your wallet for any real economic value.  
